@@ -1,0 +1,10 @@
+{
+  "connection": {
+    "development": {
+      "uri": "mongodb://mongoDB:27017/users"
+    },
+    "test": {
+      "uri": "mongodb://mongoDB:27017/users_test"
+    }
+  }
+}

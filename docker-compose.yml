@@ -1,0 +1,14 @@
+web:
+  container_name: user-service
+  build: .
+  ports:
+    - "8080:80"   # nginx port
+    - "9393:9393" # shotgun port
+  links:
+    - mongoDB
+  environment:
+    SINATRA_ENV: development
+  command: "/bin/bash -l -c 'cd /var/www/user-service && source /usr/local/rvm/scripts/rvm && service nginx start && bundle exec puma -C config/puma.rb'"
+
+mongoDB:
+  image: mongo
